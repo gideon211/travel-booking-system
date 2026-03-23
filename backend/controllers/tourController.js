@@ -16,3 +16,26 @@ export const createTour = async (req, res) => {
   await tour.save();
   res.json(tour);
 };
+
+/**
+ * Update a tour
+ */
+export const updateTour = async (req, res) => {
+  const updated = await Tour.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    { new: true }
+  );
+
+  res.json(updated);
+};
+
+
+/**
+ * Delete a tour
+ */
+export const deleteTour = async (req, res) => {
+  await Tour.findByIdAndDelete(req.params.id);
+
+  res.json({ message: "Tour deleted" });
+};

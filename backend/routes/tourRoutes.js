@@ -1,5 +1,5 @@
 import express from "express";
-import { getTours, createTour } from "../controllers/tourController.js";
+import { getTours, createTour, updateTour, deleteTour } from "../controllers/tourController.js";
 
 const router = express.Router();
 
@@ -12,5 +12,16 @@ router.get("/", getTours);
  * POST create tour
  */
 router.post("/", createTour);
+
+/**
+ * PUT update tour
+ */
+router.put("/:id", updateTour);
+
+/**
+ * DELETE tour
+ */
+router.delete("/:id", deleteTour);
+
 
 export default router;
